@@ -1,5 +1,4 @@
 import yt_dlp
-import os
 
 def get_video_info(url):
     ydl_opts = {
@@ -51,25 +50,25 @@ def main():
         status_processamento.append(f"Erro ao baixar o arquivo: {e}")
         print("\n".join(status_processamento))
 
-    try:
-        print("\n")
-        # Opções para yt-dlp para baixar apenas o áudio
-        ydl_opts = {
-            'format': 'bestaudio/best',
-            'postprocessors': [{
-                'key': 'FFmpegExtractAudio',
-                'preferredcodec': 'mp3',
-                'preferredquality': '192',
-            }],           
-        }
+    # try:
+    #     print("\n")
+    #     # Opções para yt-dlp para baixar apenas o áudio
+    #     ydl_opts = {
+    #         'format': 'bestaudio/best',
+    #         'postprocessors': [{
+    #             'key': 'FFmpegExtractAudio',
+    #             'preferredcodec': 'mp3',
+    #             'preferredquality': '192',
+    #         }],           
+    #     }
 
-        download_ydl(video_url, ydl_opts)
+    #     download_ydl(video_url, ydl_opts)
         
-        status_processamento.append("- Arquivo MP3 baixado com sucesso!")
-        print("\n".join(status_processamento))
+    #     status_processamento.append("- Arquivo MP3 baixado com sucesso!")
+    #     print("\n".join(status_processamento))
 
-    except Exception as e:        
-        status_processamento.append(f"Erro ao baixar o arquivo: {e}")
-        print("\n".join(status_processamento))
+    # except Exception as e:        
+    #     status_processamento.append(f"Erro ao baixar o arquivo: {e}")
+    #     print("\n".join(status_processamento))
 
 main()
